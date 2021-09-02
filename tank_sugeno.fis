@@ -1,0 +1,57 @@
+[System]
+Name='sugeno'
+Type='sugeno'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=15
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='erro'
+Range=[-1 1]
+NumMFs=5
+MF1='NG':'trimf',[-1.5 -1 -0.5]
+MF2='NP':'trimf',[-1 -0.5 0]
+MF3='E':'trimf',[-0.5 0 0.5]
+MF4='PP':'trimf',[0 0.5 1]
+MF5='PG':'trimf',[0.5 1 1.5]
+
+[Input2]
+Name='rate'
+Range=[-1 1]
+NumMFs=3
+MF1='N':'trimf',[-1 -1 0]
+MF2='E':'trimf',[-1 0 1]
+MF3='P':'trimf',[0 1 1]
+
+[Output1]
+Name='output1'
+Range=[0 1]
+NumMFs=5
+MF1='FechaRapido':'constant',[-1]
+MF2='Fecha':'constant',[-0.5]
+MF3='Mantem':'constant',[0]
+MF4='Abre':'constant',[0.5]
+MF5='AbreRapido':'constant',[1]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 2 (1) : 1
+1 3, 3 (1) : 1
+2 1, 2 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+3 1, 2 (1) : 1
+3 2, 3 (1) : 1
+3 3, 4 (1) : 1
+4 1, 3 (1) : 1
+4 2, 4 (1) : 1
+4 3, 4 (1) : 1
+5 1, 4 (1) : 1
+5 2, 4 (1) : 1
+5 3, 5 (1) : 1
